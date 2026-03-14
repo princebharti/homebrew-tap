@@ -4,7 +4,6 @@ class Leakfix < Formula
   url "https://github.com/princebharti/leakfix/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "1fd8cbd5fbd32ca905b83ca04e6393fb3da1fd1cace213ce50f6a2c0605f380c"
   license "MIT"
-  version "1.0.1"
 
   depends_on "python@3.11"
   depends_on "gitleaks"
