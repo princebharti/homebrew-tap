@@ -1,2 +1,0 @@
-[console_scripts]
-leakfix = leakfix.cli:main
