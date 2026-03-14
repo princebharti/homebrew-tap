@@ -10,7 +10,23 @@ class Leakfix < Formula
   depends_on "git-filter-repo"
 
   def install
-    virtualenv_install_with_resources
+    python3 = Formula["python@3.11"].opt_bin/"python3.11"
+    system python3, "-m", "pip", "install",
+           "--prefix=#{prefix}",
+           "--no-deps",
+           "."
+    
+    # Install dependencies
+    system python3, "-m", "pip", "install",
+           "--prefix=#{prefix}",
+           "click",
+           "rich",
+           "GitPython",
+           "Jinja2",
+           "watchdog",
+           "requests",
+           "weasyprint",
+           "ollama"
   end
 
   def caveats
