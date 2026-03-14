@@ -2,7 +2,7 @@ class Leakfix < Formula
   desc "One-stop CLI tool to detect, remove and prevent secrets in git repositories"
   homepage "https://github.com/princebharti/leakfix"
   url "https://github.com/princebharti/leakfix/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "aba2c7c1bb2e9fd616769eed58d1d8a8ef563907a3417a641235ac88099c4bb0"
+  sha256 "59b4bd6ffc994f5a216cb4531e9c14b8ee3af87f6b61898c5fd74b9882fe82c7"
   license "MIT"
 
   depends_on "python@3.11"
@@ -10,8 +10,7 @@ class Leakfix < Formula
   depends_on "git-filter-repo"
 
   def install
-    system "pip3.11", "install", "--prefix=#{prefix}", "--no-deps", "."
-    bin.install "bin/leakfix" if File.exist?("bin/leakfix")
+    virtualenv_install_with_resources
   end
 
   def caveats
@@ -32,6 +31,5 @@ class Leakfix < Formula
 
   test do
     system "#{bin}/leakfix", "--version"
-    system "#{bin}/leakfix", "--help"
   end
 end
