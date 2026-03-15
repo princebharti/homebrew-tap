@@ -2,7 +2,7 @@ class Leakfix < Formula
   desc "One-stop CLI tool to detect, remove and prevent secrets in git repositories"
   homepage "https://github.com/princebharti/leakfix"
   url "https://github.com/princebharti/leakfix/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "84defd2e5d393f627bb5776c2299e2bfe4781b6a0c1e8c4b6c4d6303b44ca43a"
+  sha256 "8a016c6909cdc1471b1f0fe1c7e22ae8fd88b8ade4824eb41595f2cfc0937fa1"
   license "MIT"
 
   depends_on "python@3.11"
@@ -13,12 +13,7 @@ class Leakfix < Formula
     python3 = Formula["python@3.11"].opt_bin/"python3.11"
     system python3, "-m", "pip", "install",
            "--prefix=#{prefix}",
-           "--no-deps",
            "."
-    system python3, "-m", "pip", "install",
-           "--prefix=#{prefix}",
-           "click", "rich", "GitPython", "Jinja2",
-           "watchdog", "requests", "weasyprint", "ollama", "textual"
   end
 
   def caveats
