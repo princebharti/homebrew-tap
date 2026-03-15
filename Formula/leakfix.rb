@@ -3,8 +3,8 @@ class Leakfix < Formula
 
   desc "One-stop CLI tool to detect, remove and prevent secrets in git repositories"
   homepage "https://github.com/princebharti/leakfix"
-  url "https://github.com/princebharti/leakfix/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "07f81d260d2ff9869d649d195d11c445c875359d32c24b22ce40b7074f6484f6"
+  url "https://github.com/princebharti/leakfix/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "818a1239046acaa9b634b100163f6c0b7f1ed5e8908fb2dda07fe3a8c9434054"
   license "MIT"
 
   depends_on "python@3.11"
@@ -283,6 +283,8 @@ class Leakfix < Formula
 
   def install
     virtualenv_install_with_resources
+    # Install playwright chromium for PDF generation
+    system libexec/"bin/playwright", "install", "chromium"
   end
 
   def caveats
