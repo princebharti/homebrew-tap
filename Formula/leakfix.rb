@@ -4,7 +4,7 @@ class Leakfix < Formula
   desc "One-stop CLI tool to detect, remove and prevent secrets in git repositories"
   homepage "https://github.com/princebharti/leakfix"
   url "https://github.com/princebharti/leakfix/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "818a1239046acaa9b634b100163f6c0b7f1ed5e8908fb2dda07fe3a8c9434054"
+  sha256 "c99e54773dff89eeb3462fb5320d34ff1e942bcb61b81a75d714b677b49d96c9"
   license "MIT"
 
   depends_on "python@3.11"
@@ -136,10 +136,6 @@ class Leakfix < Formula
     sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
-  resource "pillow" do
-    url "https://files.pythonhosted.org/packages/1f/42/5c74462b4fd957fcd7b13b04fb3205ff8349236ea74c7c375766d6c82288/pillow-12.1.1.tar.gz"
-    sha256 "9ad8fa5937ab05218e2b6a4cff30295ad35afd2f83ac592e68c0d871bb0fdbc4"
-  end
 
   resource "platformdirs" do
     url "https://files.pythonhosted.org/packages/19/56/8d4c30c8a1d07013911a8fdbd8f89440ef9f08d07a1b50ab8ca8be5a20f9/platformdirs-4.9.4.tar.gz"
@@ -216,6 +212,16 @@ class Leakfix < Formula
     sha256 "d791191998740ddd54b718fd75bee569ebd24ad28ca854198b80b60539925995"
   end
 
+  resource "greenlet" do
+    url "https://files.pythonhosted.org/packages/1e/5c/9aca8f3e64b5f8b87e56d23a73bd8d2e5c26b2bbc7cee2b8e3f5a7c7d8a2/greenlet-3.3.2.tar.gz"
+    sha256 "ad3a2db3f3ad6e02a458eef18a1e2dd51067e56a5aaaab0d35c31b60f33ac09a"
+  end
+
+  resource "pyee" do
+    url "https://files.pythonhosted.org/packages/f6/e7/a3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3e3/pyee-13.0.1.tar.gz"
+    sha256 "8a1c7e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e"
+  end
+
   resource "smmap" do
     url "https://files.pythonhosted.org/packages/1f/ea/49c993d6dfdd7338c9b1000a0f36817ed7ec84577ae2e52f890d1a4ff909/smmap-5.0.3.tar.gz"
     sha256 "4d9debb8b99007ae47165abc08670bd74cb74b5227dda7f643eccc4e9eb5642c"
@@ -283,8 +289,6 @@ class Leakfix < Formula
 
   def install
     virtualenv_install_with_resources
-    # Install playwright chromium for PDF generation
-    system libexec/"bin/playwright", "install", "chromium"
   end
 
   def caveats
