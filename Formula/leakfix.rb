@@ -18,7 +18,7 @@ class Leakfix < Formula
     system python3, "-m", "pip", "install",
            "--prefix=#{prefix}",
            "click", "rich", "GitPython", "Jinja2",
-           "watchdog", "requests", "weasyprint", "ollama"
+           "watchdog", "requests", "weasyprint", "ollama", "textual"
   end
 
   def caveats
