@@ -1,4 +1,6 @@
 class Leakfix < Formula
+  include Language::Python::Virtualenv
+
   desc "One-stop CLI tool to detect, remove and prevent secrets in git repositories"
   homepage "https://github.com/princebharti/leakfix"
   url "https://github.com/princebharti/leakfix/archive/refs/tags/v1.4.0.tar.gz"
