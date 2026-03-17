@@ -1,4 +1,4 @@
-class Leakfix < Formula
+class Gitleakfix < Formula
   include Language::Python::Virtualenv
 
   desc "One-stop CLI tool to detect, remove and prevent secrets in git repositories"
@@ -7,7 +7,7 @@ class Leakfix < Formula
   sha256 "08d1983d581b8b4fe32b914b43efa7b7a7c61e605451d5386751a2b185ccc8b0"
   license "MIT"
 
-  conflicts_with "gitleakfix", because: "gitleakfix provides the same CLI binary"
+  conflicts_with "leakfix", because: "leakfix provides the same CLI binary"
 
   depends_on "python@3.11"
   depends_on "gitleaks"
@@ -35,9 +35,11 @@ class Leakfix < Formula
            "questionary>=2.0.0",
            "textual>=0.60.0"
 
-    # Symlink ONLY the leakfix binary into bin/
-    # This prevents conflicts with dep binaries (pytest, rich-color, etc.)
+    # Provide both command names:
+    # - leakfix (original CLI)
+    # - gitleakfix (new Homebrew formula name)
     bin.install_symlink libexec/"bin/leakfix"
+    bin.install_symlink libexec/"bin/leakfix" => "gitleakfix"
   end
 
   def caveats
@@ -58,5 +60,6 @@ class Leakfix < Formula
 
   test do
     system "#{bin}/leakfix", "--version"
+    system "#{bin}/gitleakfix", "--version"
   end
 end
