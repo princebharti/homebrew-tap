@@ -3,8 +3,8 @@ class Leakfix < Formula
 
   desc "One-stop CLI tool to detect, remove and prevent secrets in git repositories"
   homepage "https://github.com/princebharti/gitleakfix"
-  url "https://github.com/princebharti/gitleakfix/archive/refs/tags/v1.9.0.tar.gz"
-  sha256 "cc807046ffa850685d3785912567be3812a96af51c3635ebafefe4dee2a64e1d"
+  url "https://github.com/princebharti/gitleakfix/archive/refs/tags/v1.9.2.tar.gz"
+  sha256 "819ae9625717e5f1414fd61cb9b0436bd06041629dd74f5bcc019325f50c0937"
   license "MIT"
 
   conflicts_with "gitleakfix", because: "gitleakfix provides the same CLI binary"
